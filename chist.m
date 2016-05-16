@@ -6,7 +6,7 @@ else
     [hh, bb] = hist(v,b);
 end;
 ch = cumsum(hh)/sum(hh);
-bar(bb,hh/sum(hh));
+bar(bb,hh/max(hh(:)));
 hold on;
 plot(bb,ch,'w-','linewidth',3);
 plot(bb,ch,'b-','linewidth',1);
