@@ -9,5 +9,5 @@ chh = cumsum(hist(V,bb))/numel(V);
 befp = @(X)sum((chh-normcdf(bb,X(1),X(2))).^2);
 X = fminsearch(befp,double([mu0 sig0]));
 mu=X(1);
-sig=X(2);
-KS = max(abs(chh-normcdf(bb,mu,sig)));
+sigma=X(2);
+KS = max(abs(chh-normcdf(bb,mu,sigma)));
