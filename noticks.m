@@ -1,1 +1,1 @@
-set(gca,'XTick',[],'YTick',[]);
+set(gca,'XTick',[],'YTick',[],'ztick',[]);
