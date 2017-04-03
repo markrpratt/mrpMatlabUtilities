@@ -14,7 +14,7 @@ end
 stats = regionprops(bwim,'Centroid','MajorAxisLength','MinorAxisLength', ...
     'Orientation','Area','Perimeter','Solidity','PixelIdxList');
 for b = 1:numel(stats)
-    ii = stats(b).PixelIdxLis   t;           % included pixel ids
+    ii = stats(b).PixelIdxList;           % included pixel ids
     stats(b).II = im(ii);                 % pixel intensities
     stats(b).I = sum(stats(b).II);          % intensity
     if stats(b).I<100
