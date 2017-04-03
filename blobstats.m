@@ -7,20 +7,20 @@ function stats = blobstats(bwim, im, sed)
 
 if nargin < 3 
     sed = strel('octagon',3);
-end;
+end
 if ~isempty(sed)
     bwim = imdilate(bwim,sed,'same');
-end;
+end
 stats = regionprops(bwim,'Centroid','MajorAxisLength','MinorAxisLength', ...
     'Orientation','Area','Perimeter','Solidity','PixelIdxList');
 for b = 1:numel(stats)
-    ii = stats(b).PixelIdxList;           % included pixel ids
+    ii = stats(b).PixelIdxLis   t;           % included pixel ids
     stats(b).II = im(ii);                 % pixel intensities
     stats(b).I = sum(stats(b).II);          % intensity
     if stats(b).I<100
         stats(b).I = NaN;
         continue;
-    end;
+    end
     [rr,cc] = ind2sub(size(im), ii);
     % first moment: intensity weighted centroid
     stats(b).xc = sum(stats(b).II.*cc)/stats(b).I;
@@ -54,4 +54,4 @@ for b = 1:numel(stats)
 % plot(majx,majy,'m-');
 % plot(minx,miny,'m-');
 %         if blob(b).major/blob(b).minor>2, break; end
-end;
+end
